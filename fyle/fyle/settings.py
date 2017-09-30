@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -80,13 +81,17 @@ WSGI_APPLICATION = 'fyle.wsgi.application'
 DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fyle',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': 'd5r3lhrj6fmuvi',
+        'USER': 'ifuoxcahifktkf',
+        'PASSWORD': 'c7817b7133d5465299865d0233f9cda0f9927d3390fb1180abcc6ac63feace1d',
+        'HOST': 'ec2-23-21-96-159.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
