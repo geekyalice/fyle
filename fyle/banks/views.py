@@ -17,8 +17,6 @@ class BankDetails(APIView):
         data = request.data
         if not data.get('ifsc_code'):
             return Response({"err_msg": "Missing/Empty parameter ifsc_code", "status": 400})
-        import pdb
-        pdb.set_trace()
         try:
             bank_set_data = Branches.objects.filter(ifsc=data.get('ifsc_code')).select_related('bank')
             response_data = []
